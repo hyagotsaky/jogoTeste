@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Playground JavaScript Interativo</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.1/codemirror.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.1/addon/hint/show-hint.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.1/codemirror.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.1/mode/javascript/javascript.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.1/addon/hint/show-hint.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.1/addon/hint/javascript-hint.min.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    .editor-container {
+      margin-bottom: 10px;
+      width: 100%;
+    }
+
+    #output-container {
+      margin-top: 10px;
+    }
+
+    body {
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f0f0f0;
+    }
+
+    #game-container {
+      width: 800px;
+      height: 400px;
+      position: relative;
+      border: 1px solid #000;
+      overflow: hidden;
+    }
+
+    #player {
+      width: 50px;
+      height: 50px;
+      background-color: #007bff;
+      position: absolute;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    #enemy {
+      width: 50px;
+      height: 50px;
+      background-color: #00ff6e;
+      position: absolute;
+      bottom: 24px;
+      left: 100%;
+      transform: translateX(-50%);
+    }
+
+    #input-container {
+      margin-top: 20px;
+    }
+
+    .projectile {
+      width: 12.5px;
+      height: 12.5px;
+      background-color: green;
+      position: absolute;
+      bottom: 0;
+      transform: translateX(-50%);
+      display: none;
+    }
+
+    #game-over {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 48px;
+      color: red;
+      display: none;
+    }
+
+    #menu-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      z-index: 9999;
+    }
+
+    #menu-container h1 {
+      color: white;
+      font-size: 36px;
+      margin-bottom: 20px;
+    }
+
+    #start-button {
+      padding: 10px 20px;
+      font-size: 18px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    .imgChao{
+      width: 100%;
+      height: 68px;
+      position: absolute;
+      bottom: -44px;
+    }
+  </style>
+
+<body>
+  <div class="editor-container">
+    <textarea id="code-editor"></textarea>
+  </div>
+  <button id="run-button">Executar</button>
+  <button id="start-button">Iniciar Jogo</button>
+
+  <div id="output-container">
+    <h3>Output:</h3>
+    <div id="output"></div>
+  </div>
+  <div id="game-container">
+    <div id="player">
+      <span id="score">10</span>
+    </div>
+    <div id="enemy"></div>
+    <div id="projectile" class="projectile"></div>
+    <img class="imgChao" src="./chao.png" alt="">
+    <div id="game-over">Game Over</div>
+  </div>
+  <script src="script.js"></script>
+</body>
+
+</html>
