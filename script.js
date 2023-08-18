@@ -235,11 +235,17 @@ function shoot() {
 
     const projectileWidth = 12.5; // metade da largura do projétil
     const projectileHeight = 12.5; // metade da altura do projétil
+    const playerBottomValue = parseInt(player.style.bottom);
 
     const playerCenterX = playerPosition + playerWidth / 2;
     let projectilePosition = playerCenterX - projectileWidth / 2; // Define a posição inicial do projétil
     projectile.style.left = `${projectilePosition}px`;
-    projectile.style.bottom = `${playerCenterX / 2}px`;
+    projectile.style.bottom = `${playerBottomValue + 16}px`;
+
+    if(projectile.style.bottom === ""){
+      projectile.style.bottom = "40px"
+    }
+
     projectile.style.display = "block"; // Exibe o projétil
 
     const shootInterval = setInterval(() => {
